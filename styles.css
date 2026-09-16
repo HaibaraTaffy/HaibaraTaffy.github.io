@@ -380,6 +380,57 @@ h1 {
   margin-bottom: clamp(2.5rem, 6vw, 5rem);
 }
 
+.about { padding-block: clamp(4rem, 8vw, 7rem); }
+
+.about-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  border: 1px solid color-mix(in srgb, var(--accent) 34%, var(--line));
+  border-radius: calc(var(--radius) + 10px);
+  background: color-mix(in srgb, var(--surface) 84%, transparent);
+  box-shadow: 0 1.8rem 5rem var(--shadow);
+  backdrop-filter: blur(18px) saturate(120%);
+}
+
+.about-intro { align-self: center; }
+.about-intro h2 { max-width: 12ch; font-size: clamp(2.2rem, 4vw, 4.2rem); }
+.about-intro p:last-child { margin-bottom: 0; color: var(--muted); }
+
+.about-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.about-facts article {
+  min-height: 9rem;
+  padding: 1.35rem;
+  border: 1px solid color-mix(in srgb, var(--line) 82%, transparent);
+  border-radius: calc(var(--radius) - 6px);
+  background: color-mix(in srgb, var(--surface-strong) 66%, var(--surface));
+}
+
+.about-facts span {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--accent-strong);
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.about-facts strong {
+  display: block;
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+  line-height: 1.45;
+}
+
+.about-wide { grid-column: 1 / -1; }
+.about-now { background: color-mix(in srgb, var(--accent) 14%, var(--surface)) !important; }
+
 h2 {
   margin-bottom: 1.1rem;
   font-size: clamp(2rem, 4vw, 3.9rem);
@@ -530,7 +581,8 @@ footer {
   .hero-copy { max-width: 39rem; }
   .hero-visual { aspect-ratio: 1; transform: none; }
   .focus-grid,
-  .path { grid-template-columns: 1fr; }
+  .path,
+  .about-panel { grid-template-columns: 1fr; }
   .focus-feature { grid-row: auto; min-height: 20rem !important; }
   .path-intro { position: static; }
   .side-mascot {
@@ -551,6 +603,8 @@ footer {
   .hero-actions { align-items: stretch; flex-direction: column; }
   .button { width: 100%; }
   .project { grid-template-columns: 1fr; align-items: start; }
+  .about-facts { grid-template-columns: 1fr; }
+  .about-wide { grid-column: auto; }
   footer { flex-direction: column; }
 }
 
@@ -567,5 +621,6 @@ footer {
   .hero-copy,
   .section-heading,
   .path-intro,
-  .closing { background: var(--bg); backdrop-filter: none; }
+  .closing,
+  .about-panel { background: var(--bg); backdrop-filter: none; }
 }
