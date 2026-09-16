@@ -548,6 +548,8 @@ h2 {
 }
 
 .closing h2 { max-width: 14ch; }
+.closing-copy { max-width: 42rem; color: var(--muted); }
+.closing-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem; }
 .text-link { color: var(--accent-strong); font-weight: 760; text-underline-offset: 0.35rem; }
 
 footer {
@@ -605,6 +607,7 @@ footer {
   .project { grid-template-columns: 1fr; align-items: start; }
   .about-facts { grid-template-columns: 1fr; }
   .about-wide { grid-column: auto; }
+  .closing-actions { align-items: stretch; flex-direction: column; }
   footer { flex-direction: column; }
 }
 
