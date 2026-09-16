@@ -3,49 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="HaibaraTaffy 的个人工程与学习主页，记录 FPGA、数字系统、计算机组成与工程实践。">
-  <meta name="theme-color" content="#111315">
-  <title>HaibaraTaffy | FPGA 与数字系统</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23111315'/%3E%3Cpath d='M18 18v28M46 18v28M18 32h28' stroke='%23d6a65c' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+  <meta name="description" content="HaibaraTaffy 的二次元工程与学习主页，记录 FPGA、数字系统、计算机组成与工程实践。">
+  <meta name="theme-color" content="#fff7fb">
+  <title>HaibaraTaffy | FPGA、笔记与一点二次元</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23f4b8cb'/%3E%3Cpath d='M18 18v28M46 18v28M18 32h28' stroke='%23302b3a' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="返回首页">HaibaraTaffy</a>
+    <a class="brand" href="#top" aria-label="返回首页"><span class="brand-mark" aria-hidden="true">HT</span><span>HaibaraTaffy</span></a>
     <nav aria-label="主要导航">
       <a href="#focus">学习方向</a>
       <a href="#work">公开项目</a>
       <a href="#path">学习路径</a>
     </nav>
-    <button class="theme-toggle" type="button" aria-label="切换明暗主题">切换主题</button>
+    <button class="theme-toggle" type="button" aria-label="切换明暗主题">日 / 夜</button>
   </header>
 
   <main id="main">
     <section class="hero" id="top">
       <div class="hero-copy reveal">
-        <p class="eyebrow">FPGA / DIGITAL SYSTEMS</p>
-        <h1>把硬件知识，变成可以运行的系统。</h1>
-        <p class="hero-summary">持续学习 FPGA、数字系统与计算机组成，记录工程中的判断与实践。</p>
+        <p class="eyebrow">HAIBARA + TAFFY / FPGA</p>
+        <h1>把喜欢，做成硬件。</h1>
+        <p class="hero-summary">这里记录 FPGA、数字系统与计算机组成。保持好奇，慢慢把原理变成系统。</p>
         <div class="hero-actions">
           <a class="button button-primary" href="https://github.com/HaibaraTaffy/FPGA_note" target="_blank" rel="noopener noreferrer">查看公开笔记</a>
           <a class="button button-secondary" href="https://github.com/HaibaraTaffy" target="_blank" rel="noopener noreferrer">GitHub 主页</a>
         </div>
       </div>
       <figure class="hero-visual reveal">
-        <img src="assets/fpga-workbench.jpg" width="1536" height="1024" alt="深色工作台上的 FPGA 开发板与精密电子元件">
+        <img src="assets/haibara-taffy-anime.jpg" width="1536" height="1024" alt="粉发二次元工程师在电子工作台前展示 FPGA 开发板">
       </figure>
     </section>
 
     <section class="focus section-shell" id="focus">
       <div class="section-heading reveal">
-        <h2>关注从资源到底层系统的完整链路</h2>
-        <p>不把 HDL 只当作代码。理解资源、时序、接口和数据流，才能把设计稳定地落到硬件上。</p>
+        <h2>我在学什么，也在做什么</h2>
+        <p>从一块开发板开始，向下理解资源与时序，向上连接接口、数据流和完整系统。</p>
       </div>
       <div class="focus-grid">
         <article class="focus-feature reveal">
-          <span class="index">核心方向</span>
+          <span class="index">学习主线</span>
           <h3>FPGA 架构与实现</h3>
           <p>从 LUT、FF、BRAM、DSP 和时钟网络出发，理解综合、布局布线与时序收敛。</p>
         </article>
@@ -66,12 +66,12 @@
 
     <section class="work section-shell" id="work">
       <div class="section-heading reveal">
-        <h2>公开项目</h2>
-        <p>这里只展示经过筛选、适合公开的内容。私人笔记、配置和开发会话不会进入网站。</p>
+        <h2>公开的学习仓库</h2>
+        <p>先把已经整理成熟的部分分享出来，其他内容会随着学习继续补上。</p>
       </div>
       <a class="project reveal" href="https://github.com/HaibaraTaffy/FPGA_note" target="_blank" rel="noopener noreferrer">
         <div>
-          <p class="project-type">PUBLIC REPOSITORY</p>
+          <p class="project-type">OPEN NOTES</p>
           <h3>FPGA Note</h3>
           <p>围绕 FPGA 基础资源、计算机组成、通信协议、外设与系统设计持续整理的学习笔记。</p>
         </div>
@@ -81,8 +81,8 @@
 
     <section class="path section-shell" id="path">
       <div class="path-intro reveal">
-        <h2>我的学习路径</h2>
-        <p>先完成一个可运行的工程，再回到底层资源建立完整认识。随后把知识带入更复杂的数据通路和处理器设计。</p>
+        <h2>我的学习方法</h2>
+        <p>先跑起来，再问为什么。把踩过的坑、补上的基础和真正理解的东西慢慢连成一张图。</p>
       </div>
       <ol class="path-list">
         <li class="reveal"><span>硬件入口</span><strong>完成最小工程，熟悉开发与下载流程</strong></li>
@@ -93,14 +93,14 @@
     </section>
 
     <section class="closing section-shell reveal">
-      <h2>边做，边验证，边建立自己的工程判断。</h2>
+      <h2>边做边想，做着做着就明白了。</h2>
       <a class="text-link" href="https://github.com/HaibaraTaffy" target="_blank" rel="noopener noreferrer">在 GitHub 查看更多 <span aria-hidden="true">↗</span></a>
     </section>
   </main>
 
   <footer>
     <span>HaibaraTaffy</span>
-    <span>FPGA 与数字系统学习记录</span>
+    <span>FPGA、笔记与一点二次元</span>
   </footer>
 </body>
 </html>
