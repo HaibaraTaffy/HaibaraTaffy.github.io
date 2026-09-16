@@ -11,6 +11,7 @@
   --accent-strong: #8d2f52;
   --on-accent: #fff9fb;
   --shadow: rgba(91, 53, 73, 0.13);
+  --backdrop-opacity: 0.28;
   --radius: 24px;
   --max-width: 1240px;
 }
@@ -27,6 +28,7 @@ html[data-theme="dark"] {
   --accent-strong: #f2a2bd;
   --on-accent: #24121a;
   --shadow: rgba(5, 3, 7, 0.34);
+  --backdrop-opacity: 0.19;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -42,6 +44,7 @@ html[data-theme="dark"] {
     --accent-strong: #f2a2bd;
     --on-accent: #24121a;
     --shadow: rgba(5, 3, 7, 0.34);
+    --backdrop-opacity: 0.19;
   }
 }
 
@@ -52,15 +55,59 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   overflow-x: hidden;
-  background:
-    radial-gradient(circle at 92% 8%, color-mix(in srgb, var(--accent) 11%, transparent), transparent 28rem),
-    var(--bg);
+  isolation: isolate;
+  background: transparent;
   color: var(--text);
   font-family: "Segoe UI Variable", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei UI", sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   transition: background-color 220ms ease, color 220ms ease;
 }
+
+.background-gallery {
+  position: fixed;
+  z-index: -2;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 92% 8%, color-mix(in srgb, var(--accent) 11%, transparent), transparent 28rem),
+    var(--bg);
+  pointer-events: none;
+}
+
+.background-gallery::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--bg) 88%, transparent), color-mix(in srgb, var(--bg) 58%, transparent) 52%, color-mix(in srgb, var(--bg) 82%, transparent)),
+    linear-gradient(180deg, color-mix(in srgb, var(--bg) 22%, transparent), color-mix(in srgb, var(--bg) 72%, transparent));
+}
+
+.background-slide {
+  position: absolute;
+  inset: -2%;
+  width: 104%;
+  height: 104%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  filter: saturate(0.86) contrast(0.96);
+  transform: scale(1.035);
+  transition: opacity 850ms ease, transform 5s ease;
+}
+
+.background-slide.is-active {
+  opacity: var(--backdrop-opacity);
+  transform: scale(1);
+}
+
+.background-slide-contain {
+  object-fit: contain;
+  object-position: 72% center;
+}
+
+.background-slide-top { object-position: center top; }
 
 a { color: inherit; }
 
@@ -92,7 +139,7 @@ a { -webkit-tap-highlight-color: transparent; }
   min-height: 4.5rem;
   margin: 0 auto;
   border-bottom: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
-  background: color-mix(in srgb, var(--bg) 84%, transparent);
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
   backdrop-filter: blur(20px) saturate(130%);
 }
 
@@ -188,6 +235,18 @@ h1 {
   margin-bottom: 1.8rem;
   color: var(--muted);
   font-size: clamp(1rem, 1.45vw, 1.15rem);
+}
+
+.hero-copy,
+.section-heading,
+.path-intro,
+.closing {
+  padding: clamp(1.15rem, 2.5vw, 2rem);
+  border: 1px solid color-mix(in srgb, var(--line) 72%, transparent);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface) 76%, transparent);
+  box-shadow: 0 1rem 3rem color-mix(in srgb, var(--shadow) 45%, transparent);
+  backdrop-filter: blur(14px) saturate(118%);
 }
 
 .hero-actions {
@@ -367,6 +426,8 @@ h2 {
 
 .closing {
   max-width: 70rem;
+  margin: clamp(5rem, 10vw, 9rem) auto;
+  padding: clamp(2rem, 5vw, 4rem);
   text-align: left;
 }
 
@@ -429,5 +490,9 @@ footer {
 }
 
 @media (prefers-reduced-transparency: reduce) {
-  .site-header { background: var(--bg); backdrop-filter: none; }
+  .site-header,
+  .hero-copy,
+  .section-heading,
+  .path-intro,
+  .closing { background: var(--bg); backdrop-filter: none; }
 }

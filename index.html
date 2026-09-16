@@ -12,6 +12,13 @@
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
+  <div class="background-gallery" aria-hidden="true">
+    <img class="background-slide is-active" src="assets/xiaofei-1883.jpg" alt="">
+    <img class="background-slide" src="assets/xiaofei-detective.jpg" alt="">
+    <img class="background-slide" src="assets/xiaofei-idol.jpg" alt="">
+    <img class="background-slide background-slide-contain" src="assets/xiaofei-berserker.png" alt="">
+    <img class="background-slide background-slide-top" src="assets/xiaofei.jpg" alt="">
+  </div>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="返回首页"><span class="brand-mark" aria-hidden="true">HT</span><span>HaibaraTaffy</span></a>
     <nav aria-label="主要导航">
@@ -23,7 +30,7 @@
   </header>
 
   <main id="main">
-    <section class="hero" id="top">
+    <section class="hero" id="top" data-background="0">
       <div class="hero-copy reveal">
         <p class="eyebrow">HAIBARA + TAFFY / FPGA</p>
         <h1>把喜欢，做成硬件。</h1>
@@ -38,7 +45,7 @@
       </figure>
     </section>
 
-    <section class="focus section-shell" id="focus">
+    <section class="focus section-shell" id="focus" data-background="1">
       <div class="section-heading reveal">
         <h2>我在学什么，也在做什么</h2>
         <p>从一块开发板开始，向下理解资源与时序，向上连接接口、数据流和完整系统。</p>
@@ -64,7 +71,7 @@
       </div>
     </section>
 
-    <section class="work section-shell" id="work">
+    <section class="work section-shell" id="work" data-background="2">
       <div class="section-heading reveal">
         <h2>公开的学习仓库</h2>
         <p>先把已经整理成熟的部分分享出来，其他内容会随着学习继续补上。</p>
@@ -79,7 +86,7 @@
       </a>
     </section>
 
-    <section class="path section-shell" id="path">
+    <section class="path section-shell" id="path" data-background="3">
       <div class="path-intro reveal">
         <h2>我的学习方法</h2>
         <p>先跑起来，再问为什么。把踩过的坑、补上的基础和真正理解的东西慢慢连成一张图。</p>
@@ -92,7 +99,7 @@
       </ol>
     </section>
 
-    <section class="closing section-shell reveal">
+    <section class="closing section-shell reveal" data-background="4">
       <h2>边做边想，做着做着就明白了。</h2>
       <a class="text-link" href="https://github.com/HaibaraTaffy" target="_blank" rel="noopener noreferrer">在 GitHub 查看更多 <span aria-hidden="true">↗</span></a>
     </section>
@@ -100,7 +107,7 @@
 
   <footer>
     <span>HaibaraTaffy</span>
-    <span>FPGA、笔记与一点二次元</span>
+    <span>FPGA、笔记与一点二次元 · <a href="https://image.acetaffy.org/" target="_blank" rel="noopener noreferrer">小菲图片来源</a></span>
   </footer>
 </body>
 </html>

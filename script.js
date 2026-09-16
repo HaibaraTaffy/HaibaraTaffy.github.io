@@ -33,3 +33,36 @@ if (prefersReducedMotion || !("IntersectionObserver" in window)) {
 
   revealItems.forEach((item) => observer.observe(item));
 }
+
+const backgroundSlides = [...document.querySelectorAll(".background-slide")];
+const backgroundSections = [...document.querySelectorAll("[data-background]")];
+let activeBackground = 0;
+let backgroundFrame = 0;
+
+const showBackground = (index) => {
+  if (index === activeBackground || !backgroundSlides[index]) return;
+  backgroundSlides[activeBackground]?.classList.remove("is-active");
+  backgroundSlides[index].classList.add("is-active");
+  activeBackground = index;
+};
+
+const updateBackground = () => {
+  const focusLine = window.innerHeight * 0.48;
+  let nextBackground = 0;
+
+  backgroundSections.forEach((section) => {
+    if (section.getBoundingClientRect().top <= focusLine) {
+      nextBackground = Number(section.dataset.background) || 0;
+    }
+  });
+
+  showBackground(nextBackground);
+  backgroundFrame = 0;
+};
+
+window.addEventListener("scroll", () => {
+  if (!backgroundFrame) backgroundFrame = requestAnimationFrame(updateBackground);
+}, { passive: true });
+
+window.addEventListener("resize", updateBackground);
+updateBackground();
