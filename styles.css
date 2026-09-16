@@ -119,20 +119,20 @@ body {
 
 .side-mascot {
   position: absolute;
-  bottom: -2rem;
-  width: clamp(11rem, 21vw, 21rem);
-  height: min(70vh, 43rem);
+  top: 50%;
+  width: clamp(9.5rem, 16vw, 16rem);
+  height: min(58vh, 35rem);
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
   border-radius: 45% 45% 2.5rem 2.5rem;
   background: color-mix(in srgb, var(--surface) 42%, transparent);
   box-shadow: 0 1.5rem 5rem color-mix(in srgb, var(--shadow) 82%, transparent);
-  mask-image: linear-gradient(to bottom, black 0 84%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 0 84%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, black 8%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 8%, black 90%, transparent 100%);
 }
 
-.side-mascot-left { left: clamp(-6.5rem, -5vw, -2rem); transform: rotate(-2deg); }
-.side-mascot-right { right: clamp(-6.5rem, -5vw, -2rem); transform: rotate(2deg); }
+.side-mascot-left { left: clamp(-7rem, -6vw, -3rem); transform: translateY(-50%) rotate(-2deg); }
+.side-mascot-right { right: clamp(-7rem, -6vw, -3rem); transform: translateY(-50%) rotate(2deg); }
 
 .mascot-slide {
   position: absolute;
@@ -534,13 +534,13 @@ footer {
   .focus-feature { grid-row: auto; min-height: 20rem !important; }
   .path-intro { position: static; }
   .side-mascot {
-    bottom: -1rem;
-    width: min(34vw, 9.5rem);
-    height: min(32vh, 19rem);
-    opacity: 0.72;
+    top: 54%;
+    width: min(29vw, 8rem);
+    height: min(28vh, 16rem);
+    opacity: 0.62;
   }
-  .side-mascot-left { left: -3rem; }
-  .side-mascot-right { right: -3rem; }
+  .side-mascot-left { left: -3.4rem; }
+  .side-mascot-right { right: -3.4rem; }
 }
 
 @media (max-width: 560px) {
