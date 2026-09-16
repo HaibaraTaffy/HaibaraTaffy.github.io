@@ -131,8 +131,8 @@ body {
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 8%, black 90%, transparent 100%);
 }
 
-.side-mascot-left { left: clamp(-7rem, -6vw, -3rem); transform: translateY(-50%) rotate(-2deg); }
-.side-mascot-right { right: clamp(-7rem, -6vw, -3rem); transform: translateY(-50%) rotate(2deg); }
+.side-mascot-left { left: clamp(0.6rem, 1.6vw, 1.8rem); transform: translateY(-50%) rotate(-2deg); }
+.side-mascot-right { right: clamp(0.6rem, 1.6vw, 1.8rem); transform: translateY(-50%) rotate(2deg); }
 
 .mascot-slide {
   position: absolute;
@@ -539,8 +539,8 @@ footer {
     height: min(28vh, 16rem);
     opacity: 0.62;
   }
-  .side-mascot-left { left: -3.4rem; }
-  .side-mascot-right { right: -3.4rem; }
+  .side-mascot-left { left: 0.2rem; }
+  .side-mascot-right { right: 0.2rem; }
 }
 
 @media (max-width: 560px) {
