@@ -430,6 +430,13 @@ h1 {
 
 .about-wide { grid-column: 1 / -1; }
 .about-now { background: color-mix(in srgb, var(--accent) 14%, var(--surface)) !important; }
+.about-project-link {
+  color: inherit;
+  text-decoration-color: color-mix(in srgb, var(--accent-strong) 48%, transparent);
+  text-underline-offset: 0.24em;
+}
+
+.about-project-link:hover { color: var(--accent-strong); }
 
 h2 {
   margin-bottom: 1.1rem;
@@ -482,6 +489,11 @@ h2 {
 
 .work { border-top: 1px solid var(--line); }
 
+.project-list {
+  display: grid;
+  gap: 1.2rem;
+}
+
 .project {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -509,6 +521,14 @@ h2 {
   font-size: clamp(2.5rem, 6vw, 5rem);
   letter-spacing: -0.06em;
 }
+
+.project-core {
+  background:
+    radial-gradient(circle at 88% 20%, color-mix(in srgb, var(--accent-strong) 18%, transparent), transparent 17rem),
+    color-mix(in srgb, var(--surface-strong) 86%, var(--bg-soft));
+}
+
+.project-core h3 { font-size: clamp(2.25rem, 5vw, 4.4rem); }
 
 .project p:not(.project-type) { max-width: 42rem; margin-bottom: 0; }
 .project-link { color: var(--accent-strong); font-weight: 760; white-space: nowrap; }
