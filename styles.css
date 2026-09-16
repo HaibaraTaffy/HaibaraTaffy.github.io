@@ -149,23 +149,24 @@ body {
 
 .mascot-slide img { position: absolute; display: block; max-width: none; }
 
-.mascot-fit img {
-  inset: 0;
-  width: 100%;
+.mascot-berserker img {
+  top: 0;
+  left: 50%;
+  width: auto;
   height: 100%;
-  object-fit: contain;
-  object-position: center bottom;
+  transform: translateX(-50%) scale(1.08);
+  transform-origin: center bottom;
   filter: drop-shadow(0 1rem 1.5rem color-mix(in srgb, var(--shadow) 84%, transparent));
 }
 
-.mascot-bunny img {
-  top: 0;
-  left: -7%;
+.mascot-1883 img {
+  bottom: 0;
+  left: -22%;
   width: auto;
-  height: 100%;
+  height: 95%;
 }
 
-.mascot-virtual img {
+.mascot-detective img {
   top: 0;
   left: 50%;
   width: auto;
