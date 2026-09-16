@@ -11,3 +11,6 @@
 ## 本地预览
 
 直接打开 `index.html` 即可浏览。也可以在当前目录启动任意静态文件服务器。
+
+## 在线浏览
+https://haibarataffy.github.io/
