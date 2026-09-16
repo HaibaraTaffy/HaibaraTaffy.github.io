@@ -36,13 +36,24 @@ if (prefersReducedMotion || !("IntersectionObserver" in window)) {
 
 const backgroundSlides = [...document.querySelectorAll(".background-slide")];
 const backgroundSections = [...document.querySelectorAll("[data-background]")];
+const mascotGroups = [...document.querySelectorAll(".side-mascot")];
 let activeBackground = 0;
 let backgroundFrame = 0;
+
+const showMascots = (index) => {
+  const mascotIndex = index % 3;
+  mascotGroups.forEach((group) => {
+    group.querySelectorAll(".mascot-slide").forEach((slide) => {
+      slide.classList.toggle("is-active", Number(slide.dataset.mascot) === mascotIndex);
+    });
+  });
+};
 
 const showBackground = (index) => {
   if (index === activeBackground || !backgroundSlides[index]) return;
   backgroundSlides[activeBackground]?.classList.remove("is-active");
   backgroundSlides[index].classList.add("is-active");
+  showMascots(index);
   activeBackground = index;
 };
 
