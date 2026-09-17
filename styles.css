@@ -43,7 +43,7 @@ html[data-visual-theme="haibara"] {
   --accent-strong: #682733;
   --on-accent: #fff8f7;
   --shadow: rgba(39, 48, 64, 0.16);
-  --backdrop-opacity: 0.22;
+  --backdrop-opacity: 0.44;
 }
 
 html[data-visual-theme="haibara"][data-theme="dark"] {
@@ -58,7 +58,7 @@ html[data-visual-theme="haibara"][data-theme="dark"] {
   --accent-strong: #df8994;
   --on-accent: #1b1015;
   --shadow: rgba(3, 8, 16, 0.42);
-  --backdrop-opacity: 0.3;
+  --backdrop-opacity: 0.38;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -89,7 +89,7 @@ html[data-visual-theme="haibara"][data-theme="dark"] {
     --accent-strong: #df8994;
     --on-accent: #1b1015;
     --shadow: rgba(3, 8, 16, 0.42);
-    --backdrop-opacity: 0.3;
+    --backdrop-opacity: 0.38;
   }
 }
 
@@ -127,6 +127,12 @@ body {
   background:
     linear-gradient(90deg, color-mix(in srgb, var(--bg) 88%, transparent), color-mix(in srgb, var(--bg) 58%, transparent) 52%, color-mix(in srgb, var(--bg) 82%, transparent)),
     linear-gradient(180deg, color-mix(in srgb, var(--bg) 22%, transparent), color-mix(in srgb, var(--bg) 72%, transparent));
+}
+
+html[data-visual-theme="haibara"] .background-gallery::after {
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--bg) 58%, transparent), color-mix(in srgb, var(--bg) 26%, transparent) 52%, color-mix(in srgb, var(--bg) 48%, transparent)),
+    linear-gradient(180deg, color-mix(in srgb, var(--bg) 8%, transparent), color-mix(in srgb, var(--bg) 38%, transparent));
 }
 
 .background-slide {
