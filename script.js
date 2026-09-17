@@ -2,11 +2,40 @@ document.documentElement.classList.add("js");
 
 const root = document.documentElement;
 const themeButton = document.querySelector(".theme-toggle");
+const visualThemeButton = document.querySelector(".visual-theme-toggle");
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 const storedTheme = localStorage.getItem("theme");
+const storedVisualTheme = localStorage.getItem("visual-theme");
 
 if (storedTheme === "light" || storedTheme === "dark") {
   root.dataset.theme = storedTheme;
 }
+
+if (storedVisualTheme === "taffy" || storedVisualTheme === "haibara") {
+  root.dataset.visualTheme = storedVisualTheme;
+}
+
+const updateVisualThemeButton = () => {
+  const isHaibara = root.dataset.visualTheme === "haibara";
+  visualThemeButton?.setAttribute("aria-label", isHaibara ? "切换到小菲主题" : "切换到灰原哀主题");
+  visualThemeButton?.setAttribute("aria-pressed", String(isHaibara));
+};
+
+const updateThemeColor = () => {
+  const backgroundColor = getComputedStyle(root).getPropertyValue("--bg").trim();
+  if (backgroundColor) themeColorMeta?.setAttribute("content", backgroundColor);
+};
+
+updateVisualThemeButton();
+updateThemeColor();
+
+visualThemeButton?.addEventListener("click", () => {
+  const nextVisualTheme = root.dataset.visualTheme === "haibara" ? "taffy" : "haibara";
+  root.dataset.visualTheme = nextVisualTheme;
+  localStorage.setItem("visual-theme", nextVisualTheme);
+  updateVisualThemeButton();
+  updateThemeColor();
+});
 
 themeButton?.addEventListener("click", () => {
   const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -14,6 +43,7 @@ themeButton?.addEventListener("click", () => {
   const nextTheme = currentDark ? "light" : "dark";
   root.dataset.theme = nextTheme;
   localStorage.setItem("theme", nextTheme);
+  updateThemeColor();
 });
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -34,46 +64,23 @@ if (prefersReducedMotion || !("IntersectionObserver" in window)) {
   revealItems.forEach((item) => observer.observe(item));
 }
 
-const backgroundSlides = [...document.querySelectorAll(".background-slide")];
+const backgroundSlides = [...document.querySelectorAll('.background-slide[data-visual="taffy"]')];
 const backgroundSections = [...document.querySelectorAll("[data-background]")];
-const mascotGroups = [...document.querySelectorAll(".side-mascot")];
 let activeBackground = 0;
-let backgroundFrame = 0;
-
-const showMascots = (index) => {
-  const mascotIndex = index % 3;
-  mascotGroups.forEach((group) => {
-    group.querySelectorAll(".mascot-slide").forEach((slide) => {
-      slide.classList.toggle("is-active", Number(slide.dataset.mascot) === mascotIndex);
-    });
-  });
-};
 
 const showBackground = (index) => {
   if (index === activeBackground || !backgroundSlides[index]) return;
   backgroundSlides[activeBackground]?.classList.remove("is-active");
   backgroundSlides[index].classList.add("is-active");
-  showMascots(index);
   activeBackground = index;
 };
 
-const updateBackground = () => {
-  const focusLine = window.innerHeight * 0.48;
-  let nextBackground = 0;
+if ("IntersectionObserver" in window) {
+  const backgroundObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) showBackground(Number(entry.target.dataset.background) || 0);
+    });
+  }, { rootMargin: "-46% 0px -46% 0px" });
 
-  backgroundSections.forEach((section) => {
-    if (section.getBoundingClientRect().top <= focusLine) {
-      nextBackground = Number(section.dataset.background) || 0;
-    }
-  });
-
-  showBackground(nextBackground);
-  backgroundFrame = 0;
-};
-
-window.addEventListener("scroll", () => {
-  if (!backgroundFrame) backgroundFrame = requestAnimationFrame(updateBackground);
-}, { passive: true });
-
-window.addEventListener("resize", updateBackground);
-updateBackground();
+  backgroundSections.forEach((section) => backgroundObserver.observe(section));
+}

@@ -13,23 +13,12 @@
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
   <div class="background-gallery" aria-hidden="true">
-    <img class="background-slide is-active" src="assets/xiaofei-1883.jpg" alt="">
-    <img class="background-slide" src="assets/xiaofei-detective.jpg" alt="">
-    <img class="background-slide" src="assets/xiaofei-idol.jpg" alt="">
-    <img class="background-slide background-slide-contain" src="assets/xiaofei-berserker.png" alt="">
-    <img class="background-slide background-slide-top" src="assets/xiaofei.jpg" alt="">
-  </div>
-  <div class="side-mascots" aria-hidden="true">
-    <div class="side-mascot side-mascot-left">
-      <div class="mascot-slide mascot-berserker is-active" data-mascot="0"><img src="assets/xiaofei-berserker.png" alt=""></div>
-      <div class="mascot-slide mascot-1883" data-mascot="1"><img src="assets/xiaofei-1883.jpg" alt=""></div>
-      <div class="mascot-slide mascot-detective" data-mascot="2"><img src="assets/xiaofei-detective.jpg" alt=""></div>
-    </div>
-    <div class="side-mascot side-mascot-right">
-      <div class="mascot-slide mascot-1883 is-active" data-mascot="0"><img src="assets/xiaofei-1883.jpg" alt=""></div>
-      <div class="mascot-slide mascot-detective" data-mascot="1"><img src="assets/xiaofei-detective.jpg" alt=""></div>
-      <div class="mascot-slide mascot-berserker" data-mascot="2"><img src="assets/xiaofei-berserker.png" alt=""></div>
-    </div>
+    <img class="background-slide is-active" data-visual="taffy" src="assets/xiaofei-1883.jpg" alt="">
+    <img class="background-slide" data-visual="taffy" src="assets/xiaofei-detective.jpg" alt="">
+    <img class="background-slide" data-visual="taffy" src="assets/xiaofei-idol.jpg" alt="">
+    <img class="background-slide background-slide-contain" data-visual="taffy" src="assets/xiaofei-berserker.png" alt="">
+    <img class="background-slide background-slide-top" data-visual="taffy" src="assets/xiaofei.jpg" alt="">
+    <img class="background-slide background-slide-haibara" data-visual="haibara" src="assets/haibara-lab.png" alt="" loading="lazy" decoding="async">
   </div>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="返回首页"><span class="brand-mark" aria-hidden="true">HT</span><span>HaibaraTaffy</span></a>
@@ -39,7 +28,10 @@
       <a href="#work">公开项目</a>
       <a href="#path">学习路径</a>
     </nav>
-    <button class="theme-toggle" type="button" aria-label="切换明暗主题">日 / 夜</button>
+    <div class="header-controls">
+      <button class="visual-theme-toggle" type="button" aria-label="切换到灰原哀主题">菲 / 哀</button>
+      <button class="theme-toggle" type="button" aria-label="切换明暗主题">日 / 夜</button>
+    </div>
   </header>
 
   <main id="main">
@@ -54,7 +46,8 @@
         </div>
       </div>
       <figure class="hero-visual reveal">
-        <img src="assets/xiaofei.jpg" width="1080" height="1390" alt="粉发金瞳的小菲头像，头顶戴护目镜的小动物">
+        <img class="hero-image hero-image-taffy" src="assets/xiaofei.jpg" width="1080" height="1390" alt="粉发金瞳的小菲头像，头顶戴护目镜的小动物">
+        <img class="hero-image hero-image-haibara" src="assets/haibara-hero.png" width="1260" height="1254" alt="实验室中的灰原哀主题插画，茶色短发，身穿深色高领衫与白色实验服" loading="lazy" decoding="async">
       </figure>
     </section>
 
